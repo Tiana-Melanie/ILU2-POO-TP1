@@ -122,6 +122,7 @@ public class Village {
 		}
 		
 		private String afficherMarche() {
+			StringBuilder chaine = new StringBuilder();
 			int nbEtalVide= 0;
 			String res = "L'étal est libre";
 			for(int i = 0; i< etals.length ; i++) {
@@ -129,10 +130,11 @@ public class Village {
 					 nbEtalVide++;
 				}
 				else {
-					etals[i].afficherEtal();
+					chaine.append(etals[i].afficherEtal());
 				}
 			}
-			return "Il reste " + nbEtalVide + " étals non utilisés dans le marché. \n";
+			chaine.append("Il reste " + nbEtalVide + " étals non utilisés dans le marché. \n");
+			return chaine.toString();
 		}
 	 }
 	
