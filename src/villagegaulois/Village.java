@@ -45,6 +45,9 @@ public class Village {
 	}
 
 	public String afficherVillageois() {
+		if(chef == null) {
+			throw new VillageSansChefException("Le village n'a pas de chef.");
+		}
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef "
@@ -164,7 +167,7 @@ public class Village {
 			res.append("Seul le vendeur " + tab[0].getVendeur().getNom() + " propose des "+ produit + " au marché.\n");
 		}
 		else {
-			res.append("Les vendeurs qui proposent des" + produit + " sont :\n");
+			res.append("Les vendeurs qui proposent des " + produit + " sont :\n");
 			for(int i = 0 ; i < tab.length; i++) {
 				res.append("-" + tab[i].getVendeur().getNom() + "\n");
 			}
@@ -183,8 +186,8 @@ public class Village {
 	public String afficherMarche() {
 		StringBuilder res = new StringBuilder();
 		res.append("Le marché du village ' " + getNom() + " ' possède plusieurs étals : \n");
-		return marche.afficherMarche();
-		
+		res.append(marche.afficherMarche());
+		return res.toString();		
 	}
 	
 	
