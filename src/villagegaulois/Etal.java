@@ -27,7 +27,7 @@ public class Etal {
 
 	public String libererEtal() {
 		if(!etalOccupe) {
-			throw new NullPointerException("Impossible de libérer un étal qui n'est pas occupé par un vendeur");
+			throw new IllegalStateException("Impossible de libérer un étal qui n'est pas occupé par un vendeur");
 		}
 		etalOccupe = false;
 		StringBuilder chaine = new StringBuilder(
@@ -52,7 +52,7 @@ public class Etal {
 
 	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) {
 		if(acheteur == null) {
-			throw new NullPointerException("L'acheteur ne peut pas être null.");
+			throw new IllegalArgumentException("L'acheteur ne peut pas être null.");
 		}
 		if(quantiteAcheter < 1) {
 			throw new IllegalArgumentException("La quantité achetée doit être supérieur à 0.");

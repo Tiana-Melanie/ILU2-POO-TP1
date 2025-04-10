@@ -44,7 +44,7 @@ public class Village {
 		return null;
 	}
 
-	public String afficherVillageois() {
+	public String afficherVillageois() throws VillageSansChefException {
 		if(chef == null) {
 			throw new VillageSansChefException("Le village n'a pas de chef.");
 		}
